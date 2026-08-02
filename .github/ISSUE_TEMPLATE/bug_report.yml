@@ -1,0 +1,43 @@
+name: Bug report
+description: Report a reproducible problem with agents-doctor.
+title: "bug: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve agents-doctor. Do not include API keys, private
+        repository URLs, full instruction-file contents, or other sensitive data.
+  - type: input
+    id: version
+    attributes:
+      label: agents-doctor version
+      description: Run `agents-doctor --version`.
+      placeholder: "0.1.0"
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Command and sanitized output
+      description: Replace private paths and values before pasting.
+      placeholder: |
+        agents-doctor explain path/to/package
+        Expected: ...
+        Actual: ...
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Include a small directory layout and file sizes; omit private content.
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy check
+      options:
+        - label: I removed secrets, personal data, and private repository paths.
+          required: true

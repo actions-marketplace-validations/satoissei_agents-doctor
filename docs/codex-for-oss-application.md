@@ -1,0 +1,55 @@
+# Codex for Open Source application kit
+
+This is a public, privacy-safe preparation sheet. Do **not** commit your legal name,
+ChatGPT email address, OpenAI Organization ID, or non-public usage data here.
+
+The [Codex for Open Source program](https://developers.openai.com/community/codex-for-oss)
+reviews repository usage, ecosystem importance, active maintenance, and maintainer
+role. A new project must not invent adoption metrics; apply only with facts that can
+be verified from the public repository or a trustworthy public metric source.
+
+## Submission checklist
+
+- GitHub profile and repository are public.
+- You are the primary maintainer or a core maintainer with write access.
+- The default branch, tests, release notes, security policy, and support path are public.
+- You have collected real stars, downloads, downstream use, or other ecosystem evidence
+  if you cite it.
+- Your OpenAI Organization ID and ChatGPT-account email are entered only in the form.
+- No private paths, user data, API keys, or internal usage data are included.
+
+## Recommended selections
+
+- **Role:** select **Primary maintainer** only if you own the release and maintenance
+  decisions; otherwise select **Core maintainer**.
+- **Interested in:** select **API credits for my project** for issue triage, review,
+  documentation, and release workflows.
+- Select **Codex Security** only when there is a concrete security-review workflow
+  for this repository and you are authorized to administer it.
+
+## Paste-ready English responses
+
+### Why does this repository qualify?
+
+Use this early-stage version only while it remains true; replace it with verified
+adoption data when it exists.
+
+```text
+agents-doctor is a public MIT-licensed Python CLI, pre-commit hook, and GitHub Action that detects AGENTS.md instructions silently lost to coding-agent byte budgets. I am the primary maintainer. The project is early-stage, so I do not claim adoption metrics that I cannot verify. I maintain public tests, CI across Python 3.9-3.13, release automation, a security policy, and an offline-by-design privacy boundary.
+```
+
+### How will you use API credits for your project?
+
+```text
+I would use API credits for maintainer workflows: triaging sanitized issues, reviewing pull requests against the documented loader model, drafting release notes from verified changes, and improving tests and documentation. A maintainer will review all outputs. Credits would be used only for this repository and never to scan or review systems or code that I do not own or administer.
+```
+
+### Anything else we should know?
+
+```text
+I am the repository owner and primary maintainer with write access. The project is deliberately transparent about its early-stage status and does not claim stars, downloads, or usage it cannot verify. It provides public contribution, security, privacy, governance, release, and compatibility documentation so users and contributors can assess both the tool and its maintenance practices.
+```
+
+Before submitting, re-check each sentence against the current public repository and
+the [program terms](https://developers.openai.com/codex/codex-for-oss-terms). The
+program may change, and selection is not guaranteed.

@@ -1,0 +1,52 @@
+name: Simulation is wrong
+description: agents-doctor disagrees with what the agent actually loads
+title: "[divergence] "
+labels: ["divergence", "high-priority"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This is the most valuable report this project can receive. The loader
+        reproduction was written by reading agent source code, so any gap between
+        it and real behaviour is a genuine defect.
+  - type: textarea
+    id: layout
+    attributes:
+      label: Repository layout
+      description: Which AGENTS.md files exist, and how big each one is in bytes.
+      placeholder: |
+        AGENTS.md                    12,000 bytes
+        packages/ui/AGENTS.md         3,400 bytes
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What agents-doctor reported
+      description: Output of `agents-doctor explain <directory>`.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What the agent actually did
+      description: >
+        How you established this — for example the agent's own status output, or
+        an instruction it followed or ignored.
+    validations:
+      required: true
+  - type: input
+    id: agent
+    attributes:
+      label: Agent and version
+      placeholder: "codex-cli 0.108.0"
+    validations:
+      required: true
+  - type: input
+    id: budget
+    attributes:
+      label: Configured byte budget
+      description: The value of project_doc_max_bytes, if you changed it.
+      placeholder: "default"

@@ -1,0 +1,11 @@
+# Notice
+
+`agents-doctor` reimplements the documented instruction-loading behaviour of
+`codex-rs/core/src/agents_md.rs` in [openai/codex](https://github.com/openai/codex),
+using commit `2b5bdcf67547860f2e5c5a605009a70026796b2b` as the compatibility
+reference. The upstream project is licensed under Apache License 2.0.
+
+This project is independently maintained by `satoissei` and is not affiliated with
+or endorsed by OpenAI. “Codex” is used only to describe the compatibility target.
+
+See `docs/codex-compatibility.md` for the supported behaviour and update process.

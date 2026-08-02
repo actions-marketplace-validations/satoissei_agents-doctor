@@ -1,0 +1,57 @@
+name: agents-doctor
+description: Report AGENTS.md instructions that never reach the model because the byte budget runs out.
+author: satoissei
+branding:
+  icon: alert-triangle
+  color: orange
+
+inputs:
+  path:
+    description: Repository path to check.
+    required: false
+    default: "."
+  max-bytes:
+    description: Byte budget to simulate. Defaults to the tool's own default of 32768.
+    required: false
+    default: ""
+  format:
+    description: Output format - text, json, github or sarif.
+    required: false
+    default: github
+  args:
+    description: Extra arguments passed through to `agents-doctor check`.
+    required: false
+    default: ""
+  python-version:
+    description: Python version used to run the tool.
+    required: false
+    default: "3.12"
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+      with:
+        python-version: ${{ inputs.python-version }}
+    - name: Install agents-doctor
+      shell: bash
+      run: pip install "$GITHUB_ACTION_PATH"
+    - name: Check AGENTS.md files
+      shell: bash
+      env:
+        AD_PATH: ${{ inputs.path }}
+        AD_MAX_BYTES: ${{ inputs.max-bytes }}
+        AD_FORMAT: ${{ inputs.format }}
+        AD_ARGS: ${{ inputs.args }}
+      run: |
+        set -euo pipefail
+        budget=()
+        if [ -n "$AD_MAX_BYTES" ]; then
+          budget=(--max-bytes "$AD_MAX_BYTES")
+        fi
+        extra_args=()
+        if [ -n "$AD_ARGS" ]; then
+          # Split explicit extra arguments without evaluating shell syntax or globs.
+          read -r -a extra_args <<< "$AD_ARGS"
+        fi
+        agents-doctor "${budget[@]}" check "$AD_PATH" --format "$AD_FORMAT" "${extra_args[@]}"

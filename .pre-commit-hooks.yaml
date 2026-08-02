@@ -1,0 +1,9 @@
+- id: agents-doctor
+  name: agents-doctor
+  description: Report AGENTS.md instructions that never reach the model.
+  entry: agents-doctor check
+  language: python
+  # The check reasons about the whole repository, not the staged files, so it runs
+  # once per commit rather than once per changed path.
+  pass_filenames: false
+  always_run: true

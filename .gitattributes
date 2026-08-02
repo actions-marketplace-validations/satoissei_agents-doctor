@@ -1,0 +1,2 @@
+# Keep checked-in text deterministic across contributor platforms and release builds.
+* text=auto eol=lf
